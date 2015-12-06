@@ -1,6 +1,9 @@
 app:
     path:       /
     defaults:   { _controller: AppBundle:Default:index }
+login:
+    path:       /login
+    defaults:   { _controller: AppBundle:Default:login }
 
 test:
     path:      /test

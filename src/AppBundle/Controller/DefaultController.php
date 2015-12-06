@@ -13,9 +13,14 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));
+        return $this->render('AppBundle:Master:index.html.twig');
+    }
+
+    /**
+     * @Route("/login", name="login")
+     */
+    public function loginAction(Request $request)
+    {
+        return $this->render('AppBundle:Master:login.html.twig');
     }
 }

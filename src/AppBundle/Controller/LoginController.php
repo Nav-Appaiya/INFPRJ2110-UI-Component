@@ -9,6 +9,10 @@ class LoginController extends Controller
 {
     public function indexAction(Request $request)
     {
+        if($request->getMethod() === "POST"){
+            $collector = $this->get('collector.api');
+            print_r($collector);exit;
+        }
         return $this->render('AppBundle:Master:login.html.twig');
     }
 

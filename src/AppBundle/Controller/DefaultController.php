@@ -13,12 +13,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('AppBundle:Master:index.html.twig');
+        return $this->redirect($this->generateUrl('login'));
     }
 
-    /**
-     * @Route("/login", name="login")
-     */
     public function loginAction(Request $request)
     {
         return $this->render('AppBundle:Master:login.html.twig');

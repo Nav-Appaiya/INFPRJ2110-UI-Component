@@ -1,66 +1,14 @@
-CREATE TABLE connections 
-  ( 
-     id       INT auto_increment NOT NULL, 
-     port     VARCHAR(255) DEFAULT NULL, 
-     value    INT NOT NULL, 
-     datetime DATETIME DEFAULT NULL, 
-     unitid   INT DEFAULT NULL, 
-     PRIMARY KEY(id) 
-  ) 
-DEFAULT CHARACTER SET utf8 
-COLLATE utf8_unicode_ci 
-engine = innodb; 
+CREATE TABLE connections (id INT AUTO_INCREMENT NOT NULL, port VARCHAR(255) DEFAULT NULL, value INT NOT NULL, dateTime DATETIME DEFAULT NULL, unitId INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER
+SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
 
-CREATE TABLE events 
-  ( 
-     id         INT auto_increment NOT NULL, 
-     port       VARCHAR(255) DEFAULT NULL, 
-     value      INT DEFAULT NULL, 
-     unitid     INT DEFAULT NULL, 
-     datetime   DATETIME DEFAULT NULL, 
-     created_at DATETIME DEFAULT NULL, 
-     updated_at DATETIME NOT NULL, 
-     PRIMARY KEY(id) 
-  ) 
-DEFAULT CHARACTER SET utf8 
-COLLATE utf8_unicode_ci 
-engine = innodb; 
 
-CREATE TABLE monitoring 
-  ( 
-     id         INT auto_increment NOT NULL, 
-     begintime  DATETIME NOT NULL, 
-     endtime    DATE DEFAULT NULL, 
-     unitid     INT DEFAULT NULL, 
-     type       VARCHAR(255) DEFAULT NULL, 
-     min        NUMERIC(10, 0) DEFAULT NULL, 
-     max        NUMERIC(10, 0) DEFAULT NULL, 
-     sum        NUMERIC(10, 0) DEFAULT NULL, 
-     created_at DATETIME DEFAULT NULL, 
-     updated_at DATETIME DEFAULT NULL, 
-     enabled    TINYINT(1) NOT NULL, 
-     PRIMARY KEY(id) 
-  ) 
-DEFAULT CHARACTER SET utf8 
-COLLATE utf8_unicode_ci 
-engine = innodb; 
+CREATE TABLE events (id INT AUTO_INCREMENT NOT NULL, port VARCHAR(255) DEFAULT NULL, value INT DEFAULT NULL, unitId INT DEFAULT NULL, dateTime DATETIME DEFAULT NULL, created_at DATETIME DEFAULT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER
+SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
 
-CREATE TABLE positions 
-  ( 
-     id             INT auto_increment NOT NULL, 
-     unitid         INT DEFAULT NULL, 
-     rdx            NUMERIC(10, 0) DEFAULT NULL, 
-     rdy            NUMERIC(10, 0) DEFAULT NULL, 
-     speed          NUMERIC(10, 0) DEFAULT NULL, 
-     course         NUMERIC(10, 0) DEFAULT NULL, 
-     numsattellites INT DEFAULT NULL, 
-     hdop           INT NOT NULL, 
-     quality        VARCHAR(255) NOT NULL, 
-     datetime       DATETIME DEFAULT NULL, 
-     created_at     DATETIME NOT NULL, 
-     updated_at     DATETIME NOT NULL, 
-     PRIMARY KEY(id) 
-  ) 
-DEFAULT CHARACTER SET utf8 
-COLLATE utf8_unicode_ci 
-engine = innodb; 
+
+CREATE TABLE monitoring (id INT AUTO_INCREMENT NOT NULL, beginTime DATETIME NOT NULL, endTime DATE DEFAULT NULL, unitId INT DEFAULT NULL, TYPE VARCHAR(255) DEFAULT NULL, MIN NUMERIC(10, 0) DEFAULT NULL, MAX NUMERIC(10, 0) DEFAULT NULL, SUM NUMERIC(10, 0) DEFAULT NULL, created_at DATETIME DEFAULT NULL, updated_at DATETIME DEFAULT NULL, enabled TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER
+SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;
+
+
+CREATE TABLE positions (id INT AUTO_INCREMENT NOT NULL, unitId INT DEFAULT NULL, rDx NUMERIC(10, 0) DEFAULT NULL, rDy NUMERIC(10, 0) DEFAULT NULL, speed NUMERIC(10, 0) DEFAULT NULL, course NUMERIC(10, 0) DEFAULT NULL, numSattellites INT DEFAULT NULL, hdop INT NOT NULL, quality VARCHAR(255) NOT NULL, dateTime DATETIME DEFAULT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER
+SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB;

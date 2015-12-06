@@ -1,10 +1,11 @@
 <?php
+    // CityGIS Presentation - INFPRJ-2110 Groep 4
     // Application entry point is now in:
-    // Dir: web/app_dev.php for development
-    // Dir: web/app.php for production
+    // Development: web/app_dev.php for development
+    // Production: web/app.php for production
 
-    // Please correct apache configuration for
-    // webroot in /etc/apache2/sites-enabled/*
-    // to point to /web/app.php
+    // Please note:
+    // Composer install first
+    // Set permissions on app/cache and app/logs to 777
 
     header('Location: web/app_dev.php');

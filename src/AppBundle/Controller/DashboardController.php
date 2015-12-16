@@ -19,7 +19,7 @@ class DashboardController extends Controller
      * @return void
      */
     public function indexAction(Request $request) {
-        return $this->render('AppBundle:Pages:dashboard.html.twig');
+        return $this->render('AppBundle:Admin:master.html.twig');
     }
 
 

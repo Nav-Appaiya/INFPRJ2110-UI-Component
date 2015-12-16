@@ -78,13 +78,13 @@ class Collector
 
     public function checkUser($username, $password)
     {
-        $valid = false;
         header('Content-Type: text/plain');
-        var_dump($valid);
         $users = json_decode($this->client->get('/users')->getBody());
+        $valid = false;
+
         foreach ($users as $user) {
             if(strtolower($user->email) == strtolower($username)){
-                $valid = true;
+                $valid = $user->auth_token;
             }
         }
 

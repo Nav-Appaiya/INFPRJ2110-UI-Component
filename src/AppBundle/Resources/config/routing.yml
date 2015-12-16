@@ -1,6 +1,25 @@
+
 app:
     path:       /
     defaults:   { _controller: AppBundle:Default:index }
+
+dashboard:
+    path:      /dashboard
+    defaults:  { _controller: AppBundle:Dashboard:index }
+
+monitoring:
+    path:      /monitoring
+    defaults:  { _controller: AppBundle:Monitor:index }
+
+status:
+    path:      /status
+    defaults:  { _controller: AppBundle:Systemstatus:index }
+
+
+settings:
+    path:      /settings
+    defaults:  { _controller: AppBundle:Settings:index }
+
 
 login:
     path:       /login
@@ -9,7 +28,3 @@ login:
 register:
     path:       /register
     defaults:   { _controller: AppBundle:Login:register }
-
-test:
-    path:      /test
-    defaults:  { _controller: AppBundle:Api:root }

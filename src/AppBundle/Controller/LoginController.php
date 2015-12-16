@@ -23,7 +23,7 @@ class LoginController extends Controller
             );
 
             if($check == true){
-                return $this->redirect($this->generateUrl('test'));
+                return $this->redirect($this->generateUrl('dashboard'));
             }else{
                 $this->get('session')->getFlashBag()->set('error', 'User Not Exist');
                 return $this->redirect($this->generateUrl('login'));

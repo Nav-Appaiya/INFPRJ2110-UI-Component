@@ -15,6 +15,7 @@ class ApiController extends Controller
 {
     const API_USER = 'navarajh@gmail.com';
     const API_PASS = 'admin';
+
     const API_ROOT = 'http://149.210.236.249:8000';
     const API_AUTH = 'http://149.210.236.249:8000/auth-token/';
     const API_EVENTS = 'http://149.210.236.249:8000/events';
@@ -35,14 +36,14 @@ class ApiController extends Controller
         die("API Controller voor Server 1 / 2 eventueel");
     }
 
-    // Testen met guzzle en de API's
+    // Testen met guzzle en de API's op het /test url
     public function rootAction()
     {
         header('Content-Type: text/plain');
         $client = $this->getClientWithToken();
-        $connections = json_decode($client->get('/monitoring')->getBody());
-
-        print_r($this->getUsers());exit;
+        $connections = json_decode($client->get('/monitoring')->getStatusCode());
+        print_r($client->get('/monitoring')->getBody());
+//        print_r($this->getUsers());exit;
 
     }
 

@@ -7,14 +7,26 @@ dashboard:
     path:      /dashboard
     defaults:  { _controller: AppBundle:Dashboard:index }
 
+# Page location (voorbeeld voor xdg) => Pagina's worden: location, event, position, en monitoring (letop! enkelvoud!)
+location:
+    path:      /location
+    defaults:  { _controller: AppBundle:Dashboard:location }
+    
+event:
+    path:      /event
+    defaults:  { _controller: AppBundle:Dashboard:event }
+    
+position:
+    path:      /position
+    defaults:  { _controller: AppBundle:Dashboard:position }
+
 monitoring:
     path:      /monitoring
-    defaults:  { _controller: AppBundle:Monitor:index }
+    defaults:  { _controller: AppBundle:Dashboard:monitoring }
 
 status:
     path:      /status
     defaults:  { _controller: AppBundle:Systemstatus:index }
-
 
 settings:
     path:      /settings

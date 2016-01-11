@@ -19,7 +19,7 @@ class SystemstatusController extends Controller
      * @return void
      */
     public function indexAction(Request $request) {
-        return $this->render('AppBundle:Pages:systemstatus.html.twig');
+        return $this->render('AppBundle:Admin:master.html.twig');
     }
 
 

@@ -19,7 +19,7 @@ class MonitorController extends Controller
      * @return void
      */
     public function indexAction(Request $request) {
-        return $this->render('AppBundle:Pages:monitor.html.twig');
+        return $this->render('AppBundle:Admin:master.html.twig');
     }
 
 

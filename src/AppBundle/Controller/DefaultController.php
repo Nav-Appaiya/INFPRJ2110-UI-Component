@@ -25,4 +25,8 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle:Master:login.html.twig');
     }
+    
+    public function databaseConnection(){
+	    $em = $this->get('doctrine.entitymanager');
+    }
 }

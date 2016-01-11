@@ -15,6 +15,30 @@ class LoginController extends Controller
 {
     public function indexAction(Request $request) {
 
+        $needLogin = true;
+
+        if (!empty($this->get('session')->get('userId'))) {
+
+            if (!empty($this->get('session')->get('username')) && !empty($this->get('session')->get('password'))) {
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $checkUser = $em->getRepository('AppBundle:Users')->findOneById($this->get('session')->get('userId'));
+
+                if (md5($checkUser->getPassword()) == $this->get('session')->get('password')) {
+                    $needLogin = false;
+                }
+
+                if ($checkUser->getUsername() != $this->get('session')->get('username')) {
+                    $needLogin = false;
+                }
+
+            }
+        }
+
+        if ($needLogin === false) {
+            return $this->redirect($this->generateUrl('dashboard'));
+        }
+
         if ($request->getMethod() === "POST") {
 
             $em = $this->getDoctrine()->getEntityManager();

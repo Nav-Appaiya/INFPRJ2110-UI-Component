@@ -14,12 +14,6 @@ use AppBundle\Utils\AuthUser;
 // Deze gaat de verschillende pagina's in admin panel afhandelen
 class DashboardController extends Controller
 {
-    
-    public function __construct()
-    {
-        $authUser = new AuthUser();
-        $authUser->checkUserLogin();
-    }
 
     /**
      * indexAction function.
@@ -28,6 +22,13 @@ class DashboardController extends Controller
      * @return void
      */
     public function indexAction(Request $request) {
+
+        $authUser = new AuthUser();
+        $authUser->setEm($this->getDoctrine()->getManager());
+        if (!$authUser->checkUserLogin()) {
+            return $this->redirect($this->generateUrl('login'));
+        }
+
         return $this->render('AppBundle:Admin:dashboard.html.twig');
     }
 

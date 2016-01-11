@@ -1,12 +1,23 @@
 <?php
 namespace AppBundle\Utils;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Users;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class AuthUser extends Controller
+class AuthUser
 {
+    protected $_em;
+
+    public function setEm($em) {
+        $this->_em = $em;
+    }
+
+
+    protected function getEm()
+    {
+        return $this->_em;
+    }
+
 
     /**
      * checkUser function.
@@ -21,19 +32,22 @@ class AuthUser extends Controller
         $session = new Session();
         $userId = $session->get('userId');
 
-        $em = $this->get('doctrine')->getEntityManager();
-        $userRepo = $em->getRepository('AppBundle:Users');
-
-        $nav = $userRepo->findOneBy(1);
-
-        print_r($nav);exit;
-
+        $em = $this->getEm();
         $checkUser = $em->getRepository('AppBundle:Users')->findOneById($userId);
 
+        if (!isset($checkUser)) {
+            return false;
+        }
 
-        $this->get('session')->set('userId', $checkUser->getId());
-        $this->get('session')->set('username', $checkUser->getUsername());
-        $this->get('session')->set('password', md5($checkUser->getPassword()));
+        if (md5($checkUser->getPassword()) != $session->get('password')) {
+            return false;
+        }
+
+        if ($checkUser->getUsername() != $session->get('username')) {
+            return false;
+        }
+
+        return true;
     }
 
 }

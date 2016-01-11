@@ -5,7 +5,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\Users;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class AuthUser
+class AuthUser extends Controller
 {
 
     /**
@@ -21,10 +21,14 @@ class AuthUser
         $session = new Session();
         $userId = $session->get('userId');
 
-        $em = $this->getContainer()->get('doctrine')->getEntityManager();
+        $em = $this->get('doctrine')->getEntityManager();
+        $userRepo = $em->getRepository('AppBundle:Users');
+
+        $nav = $userRepo->findOneBy(1);
+
+        print_r($nav);exit;
 
         $checkUser = $em->getRepository('AppBundle:Users')->findOneById($userId);
-print_r($checkUser); die();
 
 
         $this->get('session')->set('userId', $checkUser->getId());

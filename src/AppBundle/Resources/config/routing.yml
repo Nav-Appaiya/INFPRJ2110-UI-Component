@@ -1,3 +1,6 @@
+anno:
+    resource: '@AppBundle/Controller/'
+    type:     annotation
 
 app:
     path:       /

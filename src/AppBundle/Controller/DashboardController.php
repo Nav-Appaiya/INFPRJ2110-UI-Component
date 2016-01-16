@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Utils\AuthUser;
+use Symfony\Component\Routing\Annotation\Route;
 
 // Deze gaat de verschillende pagina's in admin panel afhandelen
 class DashboardController extends Controller
@@ -30,6 +31,13 @@ class DashboardController extends Controller
         }
 
         return $this->render('AppBundle:Admin:dashboard.html.twig');
+    }
+
+    /**
+     * @Route("/maps", name="maps")
+     */
+    public function mapsAction(){
+        return $this->render('AppBundle:Admin:maps.html.twig');
     }
 
 

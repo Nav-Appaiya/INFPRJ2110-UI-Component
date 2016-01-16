@@ -1,0 +1,33 @@
+{% extends 'AppBundle:Admin:master.html.twig' %}
+
+    {% block header_scripts %}
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script>
+            function initialize() {
+                var mapProp = {
+                    center:new google.maps.LatLng(51.508742,-0.120850),
+                    zoom:5,
+                    mapTypeId:google.maps.MapTypeId.ROADMAP
+                };
+                var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+    {% endblock %}
+
+{% block body %}
+
+
+    <div id="googleMap"></div>
+    <div class="container-fluid" id="main">
+        <div class="row">
+            <div class="col-xs-4"><!--map-canvas will be postioned here--></div>
+
+        </div>
+
+{% endblock %}
+
+        {% block scripts %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+            <script src="{{ asset('bundles/app/js/scripts.js') }}"></script>
+        {% endblock %}

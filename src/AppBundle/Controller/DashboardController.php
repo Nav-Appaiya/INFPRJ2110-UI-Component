@@ -31,6 +31,11 @@ class DashboardController extends Controller
         }
 
         $em = $this->getDoctrine()->getEntityManager();
+        $connections = $em->getRepository('AppBundle:Connections');
+        $positions = $em->getRepository('AppBundle:Positions');
+        $events = $em->getRepository('AppBundle:Events');
+        $monitoring = $em->getRepository('AppBundle:Monitoring');
+
         $qb = $em->createQueryBuilder();
 
         $qb->select('count(connections.id)');
@@ -54,6 +59,10 @@ class DashboardController extends Controller
             'count_events'        => $count_events,
             'count_monitoring'    => $count_monitoring,
             'count_positions'     => $count_positions,
+            'connections'         => $connections,
+            'positions'         => $positions,
+            'events'            => $events,
+            'monitoring'         => $monitoring
         ));
     }
 

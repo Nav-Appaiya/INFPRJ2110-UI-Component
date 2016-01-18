@@ -23,7 +23,7 @@
                         <svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"/></svg>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">{{count_events}}</div>
+                        <div class="large">{{events|length}}</div>
                         <div class="text-muted">Events</div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
 
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">{{positions|length}}</div>
+                        <div class="large">{{monitorings|length}}</div>
                         <div class="text-muted">Monitoring</div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"/></svg>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">{{count_positions}}</div>
+                        <div class="large">{{connections|length}}</div>
                         <div class="text-muted">Connections</div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                         <svg class="glyph stroked checkmark"><use xlink:href="#stroked-checkmark"/></svg>
                     </div>
                     <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">{{count_positions}}</div>
+                        <div class="large">{{positions|length}}</div>
                         <div class="text-muted">Positions</div>
                     </div>
                 </div>

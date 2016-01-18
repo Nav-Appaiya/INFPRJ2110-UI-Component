@@ -36,33 +36,11 @@ class DashboardController extends Controller
         $events = $em->getRepository('AppBundle:Events');
         $monitoring = $em->getRepository('AppBundle:Monitoring');
 
-        $qb = $em->createQueryBuilder();
-
-        $qb->select('count(connections.id)');
-        $qb->from('AppBundle:Connections', 'connections');
-        $count_connection = $qb->getQuery()->getSingleScalarResult();
-
-        $qb->select('count(event.id)');
-        $qb->from('AppBundle:Events', 'event');
-        $count_events = $qb->getQuery()->getSingleScalarResult();
-        
-        $qb->select('count(monitoring.id)');
-        $qb->from('AppBundle:Monitoring', 'monitoring');
-        $count_monitoring = $qb->getQuery()->getSingleScalarResult();
-
-        $qb->select('count(positions.id)');
-        $qb->from('AppBundle:Positions', 'positions');
-        $count_positions = $qb->getQuery()->getSingleScalarResult();
-
         return $this->render('AppBundle:Admin:dashboard.html.twig', array(
-            'count_connections'   => $count_connection,
-            'count_events'        => $count_events,
-            'count_monitoring'    => $count_monitoring,
-            'count_positions'     => $count_positions,
-            'connections'         => $connections,
-            'positions'         => $positions,
-            'events'            => $events,
-            'monitoring'         => $monitoring
+            'connections'         => $connections->findAll(),
+            'positions'         => $positions->findAll(),
+            'events'            => $events->findAll(),
+            'monitorings'         => $monitoring->findAll()
         ));
     }
 

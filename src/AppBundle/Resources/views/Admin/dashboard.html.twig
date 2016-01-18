@@ -87,6 +87,7 @@
     
     <div id="routeMap" style="width: 400px; height: 300px"></div> 
 
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript"> 
       var myOptions = {
          zoom: 8,
@@ -94,7 +95,7 @@
          mapTypeId: google.maps.MapTypeId.ROADMAP
       };
 
-      var map = new google.maps.Map(document.getElementById("map"), myOptions);
+      var map = new google.maps.Map(document.getElementById("routeMap"), myOptions);
     </script>
 
 <!--

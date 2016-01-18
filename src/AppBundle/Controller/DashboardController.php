@@ -48,6 +48,11 @@ class DashboardController extends Controller
      * @Route("/maps", name="maps")
      */
     public function mapsAction(){
+        $em = $this->getDoctrine()->getEntityManager();
+        $positionsRepo = $em->getRepository('AppBundle:Positions');
+
+        print_r($positionsRepo);exit;
+
         return $this->render('AppBundle:Admin:maps.html.twig');
     }
 

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Positions</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ position.id }}</td>
+            </tr>
+            <tr>
+                <th>Unitid</th>
+                <td>{{ position.unitId }}</td>
+            </tr>
+            <tr>
+                <th>Rdx</th>
+                <td>{{ position.rDx }}</td>
+            </tr>
+            <tr>
+                <th>Rdy</th>
+                <td>{{ position.rDy }}</td>
+            </tr>
+            <tr>
+                <th>Speed</th>
+                <td>{{ position.speed }}</td>
+            </tr>
+            <tr>
+                <th>Course</th>
+                <td>{{ position.course }}</td>
+            </tr>
+            <tr>
+                <th>Numsattellites</th>
+                <td>{{ position.numSattellites }}</td>
+            </tr>
+            <tr>
+                <th>Hdop</th>
+                <td>{{ position.hdop }}</td>
+            </tr>
+            <tr>
+                <th>Quality</th>
+                <td>{{ position.quality }}</td>
+            </tr>
+            <tr>
+                <th>Datetime</th>
+                <td>{% if position.dateTime %}{{ position.dateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if position.createdAt %}{{ position.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if position.updatedAt %}{{ position.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('positions_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('positions_edit', { 'id': position.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

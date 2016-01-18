@@ -52,12 +52,18 @@
         </div>
     </form>
     <ul class="nav menu">
-        <li class="{% if app.request.get('_route' ) == 'dashboard' %}active{% endif %}"><a href="{{ path('dashboard') }}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-        <li class="{% if app.request.get('_route' ) == 'location' %}active{% endif %}"><a href="{{ path('location') }}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Locations</a></li>
-        <li class="{% if app.request.get('_route' ) == 'event' %}active{% endif %}"><a href="{{ path('event') }}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Events </a></li>
-       <li class="{% if app.request.get('_route' ) == 'monitoring' %}active{% endif %}"><a href="{{ path('monitoring') }}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Monitoring</a></li>
-        <li class="{% if app.request.get('_route' ) == 'position' %}active{% endif %}"><a href="{{ path('position') }}"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Positions</a></li>
-       <li class="{% if app.request.get('_route' ) == 'alerts' %}active{% endif %}"><a href="{{ path('position') }}"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts</a></li>
+        <li class="{% if app.request.get('_route' ) == 'dashboard' %}active{% endif %}"><a href="{{ path('dashboard') }}">
+                <svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+        <li class="{% if app.request.get('_route' ) == 'connections_index' %}active{% endif %}"><a href="{{ path('connections_index') }}">
+                <svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Connections</a></li>
+        <li class="{% if app.request.get('_route' ) == 'events_index' %}active{% endif %}"><a href="{{ path('events_index') }}">
+                <svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Events </a></li>
+       <li class="{% if app.request.get('_route' ) == 'monitoring_index' %}active{% endif %}"><a href="{{ path('monitoring_index') }}">
+               <svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Monitoring</a></li>
+        <li class="{% if app.request.get('_route' ) == 'positions_index' %}active{% endif %}"><a href="{{ path('positions_index') }}">
+                <svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Positions</a></li>
+       <li class="{% if app.request.get('_route' ) == 'alerts' %}active{% endif %}"><a href="{{ path('position') }}">
+               <svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Alerts</a></li>
 
         <li role="presentation" class="divider"></li>
         <li class=""><a href="login.html"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Reports </a></li>

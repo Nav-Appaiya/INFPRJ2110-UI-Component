@@ -37,10 +37,11 @@ class DashboardController extends Controller
         $monitoring = $em->getRepository('AppBundle:Monitoring');
 
         return $this->render('AppBundle:Admin:dashboard.html.twig', array(
-            'connections'         => $connections->findAll(),
+            'connections'       => $connections->findAll(),
             'positions'         => $positions->findAll(),
             'events'            => $events->findAll(),
-            'monitorings'         => $monitoring->findAll()
+            'monitorings'       => $monitoring->findAll(),
+            'limit_positions'   => $monitoring->findAll()->orderBy('id DESC')->setMaxResults(10)
         ));
     }
 

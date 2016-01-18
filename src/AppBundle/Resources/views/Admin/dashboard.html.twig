@@ -89,25 +89,33 @@
 
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript">
-        var myLatlng = new google.maps.LatLng(52.2771179,4.1001394,7.51);
+        var myLatlng = new google.maps.LatLng(52.2871997,4.8115037,7.51);
         var mapOptions = {
-            zoom: 7,
+            zoom: 8,
             center: myLatlng
         }
-//        52.052279, 4.474407
-        var markerpos = {lat: 52.052279, lng: 4.474407};
+
         var map = new google.maps.Map(document.getElementById("routeMap"), mapOptions);
 
-        var marker = new google.maps.Marker({
-            position: markerpos,
-            title:"Hello World!"
-        });
+        var markers =[
+            {% for item in limit_positions %}
+                {lat: {{item.rDx}},
+                lng: {{item.rDy}},
+                name: "UnitId: {{item.unitId}}"},
+            {% endfor %}
+        ];
 
-        // To add the marker to the map, call setMap();
-        marker.setMap(map);
+        //var markers =[{lat:30.2,lng:45.3,name:"whatever"},{lat:35.2,lng:46.3,name:"something else"}];
+
+        for (var i = 0; i < markers.length; i++) {
+            var marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(markers[i].lat,markers[i].lng),
+                  map: map,
+                  title:markers[i].name
+              });
+        }    
+
     </script>
-
-    {{ dump() }}
 
 <!--
     <div class="row">

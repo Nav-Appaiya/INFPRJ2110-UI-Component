@@ -4,7 +4,7 @@ namespace AppBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ConnectionsControllerTest extends WebTestCase
+class ConnectionsControllerTest extends \PHPUnit_Framework_T
 {
     /*
     public function testCompleteScenario()
@@ -52,4 +52,8 @@ class ConnectionsControllerTest extends WebTestCase
     }
 
     */
+
+    public function testAction(){
+
+    }
 }

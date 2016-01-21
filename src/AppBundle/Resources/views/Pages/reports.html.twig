@@ -63,10 +63,9 @@
                 var ctx = document.getElementById("canvas").getContext("2d");
                 window.myLine = new Chart(ctx).Line(lineChartData, {responsive: true, bezierCurve: true});
                 {% for p in positions %}
-                window.myLine.addData([{{ p.rDx }}, {{ p.rDy }}], 2);
-                    console.log("ADDED DATA: {{ p.rDx }}, {{ p.rDy }}")
+                    window.myLine.addData([{{ p.rDx }}, {{ p.rDy }}], {{ p.unitId }});
+                console.log("ADDED DATA: {{ p.rDx }}, {{ p.rDy }}")
                 {% endfor %}
-                console.log("passed here");
             }
         } // end of function init
         document.addEventListener("DOMContentLoaded", init, false);

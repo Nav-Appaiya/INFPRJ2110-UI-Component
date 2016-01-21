@@ -15,9 +15,9 @@ class Positions
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="string", length=36)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
     private $id;
 
@@ -31,14 +31,14 @@ class Positions
     /**
      * @var string
      *
-     * @ORM\Column(name="rDx", type="decimal", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="rDx", type="string", nullable=true)
      */
     private $rDx;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rDy", type="decimal", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="rDy", type="string", nullable=true)
      */
     private $rDy;
 

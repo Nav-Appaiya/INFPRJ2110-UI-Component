@@ -17,6 +17,13 @@ class ReportsController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('@App/Pages/reports.html.twig');
+        $em = $this->getDoctrine()->getEntityManager();
+        $repo = $em->getRepository('AppBundle:Positions');
+
+        $positions = $repo->findAll();
+
+        return $this->render('@App/Pages/reports.html.twig', [
+            'positions' => $positions
+        ]);
     }
 }

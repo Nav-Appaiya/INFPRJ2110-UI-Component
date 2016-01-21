@@ -1,0 +1,57 @@
+{% extends '@App/Admin/master.html.twig' %}
+
+{% block body %}
+    <h1>Monitoring list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Begintime</th>
+                <th>Endtime</th>
+                <th>Unitid</th>
+                <th>Type</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Sum</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Enabled</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for monitoring in monitorings %}
+            <tr>
+                <td><a href="{{ path('monitoring_show', { 'id': monitoring.id }) }}">{{ monitoring.id }}</a></td>
+                <td>{% if monitoring.beginTime %}{{ monitoring.beginTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if monitoring.endTime %}{{ monitoring.endTime|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ monitoring.unitId }}</td>
+                <td>{{ monitoring.type }}</td>
+                <td>{{ monitoring.min }}</td>
+                <td>{{ monitoring.max }}</td>
+                <td>{{ monitoring.sum }}</td>
+                <td>{% if monitoring.createdAt %}{{ monitoring.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if monitoring.updatedAt %}{{ monitoring.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if monitoring.enabled %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('monitoring_show', { 'id': monitoring.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('monitoring_edit', { 'id': monitoring.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('monitoring_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

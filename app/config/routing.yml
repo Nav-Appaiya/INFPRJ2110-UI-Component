@@ -1,2 +1,14 @@
+app_connections:
+    resource: "@AppBundle/Controller/ConnectionsController.php"
+    type:     annotation
+
+app_monitoring:
+    resource: "@AppBundle/Controller/MonitoringController.php"
+    type:     annotation
+
+app_events:
+    resource: "@AppBundle/Controller/EventsController.php"
+    type:     annotation
+
 app:
     resource: "@AppBundle/Resources/config/routing.yml"

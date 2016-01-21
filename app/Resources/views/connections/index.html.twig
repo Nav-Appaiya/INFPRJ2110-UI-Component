@@ -1,0 +1,45 @@
+{% extends '@App/Admin/master.html.twig' %}
+
+{% block body %}
+    <h1>Connections list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Port</th>
+                <th>Value</th>
+                <th>Datetime</th>
+                <th>Unitid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for connection in connections %}
+            <tr>
+                <td><a href="{{ path('connections_show', { 'id': connection.id }) }}">{{ connection.id }}</a></td>
+                <td>{{ connection.port }}</td>
+                <td>{{ connection.value }}</td>
+                <td>{% if connection.dateTime %}{{ connection.dateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ connection.unitId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('connections_show', { 'id': connection.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('connections_edit', { 'id': connection.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('connections_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

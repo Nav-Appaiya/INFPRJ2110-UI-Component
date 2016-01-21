@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Monitoring</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ monitoring.id }}</td>
+            </tr>
+            <tr>
+                <th>Begintime</th>
+                <td>{% if monitoring.beginTime %}{{ monitoring.beginTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Endtime</th>
+                <td>{% if monitoring.endTime %}{{ monitoring.endTime|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Unitid</th>
+                <td>{{ monitoring.unitId }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ monitoring.type }}</td>
+            </tr>
+            <tr>
+                <th>Min</th>
+                <td>{{ monitoring.min }}</td>
+            </tr>
+            <tr>
+                <th>Max</th>
+                <td>{{ monitoring.max }}</td>
+            </tr>
+            <tr>
+                <th>Sum</th>
+                <td>{{ monitoring.sum }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if monitoring.createdAt %}{{ monitoring.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if monitoring.updatedAt %}{{ monitoring.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enabled</th>
+                <td>{% if monitoring.enabled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('monitoring_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('monitoring_edit', { 'id': monitoring.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

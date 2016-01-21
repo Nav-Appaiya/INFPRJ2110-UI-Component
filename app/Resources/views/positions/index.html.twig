@@ -1,0 +1,61 @@
+{% extends '@App/Admin/master.html.twig' %}
+
+{% block body %}
+    <h1>Positions list</h1>
+
+    <div class="row">
+        <table class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Unitid</th>
+                <th>Rdx</th>
+                <th>Rdy</th>
+                <th>Speed</th>
+                <th>Course</th>
+                <th>Numsattellites</th>
+                <th>Hdop</th>
+                <th>Quality</th>
+                <th>Datetime</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for position in positions %}
+                <tr>
+                    <td><a href="{{ path('positions_show', { 'id': position.id }) }}">{{ position.id }}</a></td>
+                    <td>{{ position.unitId }}</td>
+                    <td>{{ position.rDx }}</td>
+                    <td>{{ position.rDy }}</td>
+                    <td>{{ position.speed }}</td>
+                    <td>{{ position.course }}</td>
+                    <td>{{ position.numSattellites }}</td>
+                    <td>{{ position.hdop }}</td>
+                    <td>{{ position.quality }}</td>
+                    <td>{% if position.dateTime %}{{ position.dateTime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if position.createdAt %}{{ position.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if position.updatedAt %}{{ position.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('positions_show', { 'id': position.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('positions_edit', { 'id': position.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <ul>
+        <li>
+            <a href="{{ path('positions_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
